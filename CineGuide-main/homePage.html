@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineGuide</title>
+    <link rel="stylesheet" href="CSS/homePage.css">
+    <script defer src="JS/homePage.js" defer></script>
+</head>
+
+<body>
+    
+    <header id="inicio">
+        <button onclick="toggleAside()">Menu</button>
+        <h1>CineGuide</h1>
+        <button class="btn-login" onclick="location.href=''">Login</button>
+    </header>
+
+        <aside id="asside">
+        <button class="fechar-btn" onclick="fecharAside()">X</button>
+        <div>
+            <a href="login.html">login</a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+    </aside>
+
+   <main class="container">
+    <section class="section highlights">
+      <h2>Em destaque</h2>
+      <div class="grid" id="highlights"></div>
+    </section>
+
+    <section class="section">
+      <h2>Mais Vistos</h2>
+      <div class="grid" id="mostWatched"></div>
+    </section>
+
+    <section class="section">
+      <h2>Melhores Avaliados</h2>
+      <div class="grid" id="topRated"></div>
+    </section>
+
+    <section class="section genres">
+      <h2>Gêneros</h2>
+      <div class="genres-list">
+        <button>Ação</button><button>Comédia</button><button>Drama</button>
+        <button>Suspense</button><button>Romance</button><button>Fantasia</button>
+      </div>
+    </section>
+  </main>
+
+     <footer class="footer">
+        <div class="container">
+            <a href="https://github.com/MrMeta-24">Meu github</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

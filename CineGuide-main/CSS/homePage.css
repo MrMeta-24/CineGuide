@@ -1,0 +1,197 @@
+/* RESET GERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* HEADER */
+header#inicio {
+  background-color: #141414;
+  color: #f5c518;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header button {
+  background-color: #f5c518;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+header button:hover {
+  background-color: #d4aa17;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+/* ASIDE MENU */
+aside#asside {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+  transition: left 0.3s ease;
+  z-index: 100;
+}
+
+aside#asside.open {
+  left: 0;
+}
+
+aside .fechar-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+aside a {
+  display: block;
+  color: #f5f5f5;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+  transition: color 0.2s;
+}
+
+aside a:hover {
+  color: #f5c518;
+}
+
+/* CONTAINER GERAL */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #141414;
+}
+
+/* GRID DE FILMES */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 0.5rem;
+}
+
+.card-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-info p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* GÊNEROS */
+.genres-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genres-list button {
+  padding: 0.5rem 1rem;
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.genres-list button:hover {
+  background-color: #ccc;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #141414;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #f5c518;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  header#inicio {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .genres-list {
+    flex-direction: column;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+}
