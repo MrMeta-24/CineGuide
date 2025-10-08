@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Em destaque: 3 primeiros cadastrados
   const destaques = filmes.slice(0, 3);
   renderFilmes(destaques, highlightsContainer);
 
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const maisVistos = shuffleArray([...filmes]).slice(0, Math.min(3, filmes.length));
   renderFilmes(maisVistos, mostWatchedContainer);
 
-  // Melhores avaliados: top 3 com maior nota
   const melhorAvaliados = filmes
     .filter(f => f.nota)
     .sort((a, b) => b.nota - a.nota)
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
   renderFilmes(melhorAvaliados, topRatedContainer);
 });
 
-// Função para exibir os cards de filmes
 function renderFilmes(lista, container) {
   container.innerHTML = "";
   lista.forEach(filme => {
@@ -68,3 +65,4 @@ function fecharAside() {
   const aside = document.getElementById("asside");
   aside.classList.remove("active");
 }
+
