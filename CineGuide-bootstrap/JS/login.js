@@ -6,13 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutBtn = document.getElementById('logoutBtn');
   const aside = document.getElementById('asside');
 
-  // Mostrar/Esconder login e cadastro
   window.toggleForm = () => {
     loginForm.classList.toggle('hidden');
     registerForm.classList.toggle('hidden');
   };
 
-  // Registro de usuário
   registerSubmit.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     registerSubmit.reset();
   });
 
-  // Login de usuário
   loginSubmit.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -66,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mostrar ou esconder botão logout
   function updateLogoutButtonVisibility() {
     const loggedInUser = JSON.parse(localStorage.getItem('isLoggedIn'));
     if (loggedInUser) {
@@ -77,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateLogoutButtonVisibility();
 
-  // Logout
   logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('isLoggedIn');
     alert('Você foi desconectado.');
@@ -85,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'login.html';
   });
 
-  // Menu lateral
   window.toggleAside = () => {
     aside.classList.toggle('active');
   };
@@ -94,3 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
     aside.classList.remove('active');
   };
 });
+
