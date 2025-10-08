@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
       imagem: form.imagem.value.trim()
     };
 
-    // Validação básica
     if (!filme.nome || !filme.diretor || !filme.genero || isNaN(filme.nota)) {
       alert("Preencha todos os campos obrigatórios e uma nota válida.");
       return;
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Salvar no localStorage
     let filmes = JSON.parse(localStorage.getItem("filmes")) || [];
     filmes.push(filme);
     localStorage.setItem("filmes", JSON.stringify(filmes));
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.reset();
   });
 
-  // Funções para abrir e fechar menu lateral
   window.toggleAside = function () {
     document.getElementById("aside").classList.toggle("active");
   };
@@ -49,3 +46,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("aside").classList.remove("active");
   };
 });
+
