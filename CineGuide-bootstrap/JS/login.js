@@ -1,77 +1,96 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    const loginSubmit = document.getElementById('login');
-    const registerSubmit = document.getElementById('register');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const loginSubmit = document.getElementById('login');
+  const registerSubmit = document.getElementById('register');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const aside = document.getElementById('asside');
 
-    window.toggleForm = () => {
-        loginForm.classList.toggle('hidden');
-        registerForm.classList.toggle('hidden');
-    };
+  // Mostrar/Esconder login e cadastro
+  window.toggleForm = () => {
+    loginForm.classList.toggle('hidden');
+    registerForm.classList.toggle('hidden');
+  };
 
-    registerSubmit.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const username = document.getElementById('registerUsername').value;
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
+  // Registro de usuário
+  registerSubmit.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        if (!username || !email || !password) {
-            alert('Por favor, preencha todos os campos para se registrar.');
-            return;
-        }
+    const username = document.getElementById('registerUsername').value.trim();
+    const email = document.getElementById('registerEmail').value.trim();
+    const password = document.getElementById('registerPassword').value.trim();
 
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const userExists = users.some(user => user.email === email);
+    if (!username || !email || !password) {
+      alert('Por favor, preencha todos os campos para se registrar.');
+      return;
+    }
 
-        if (userExists) {
-            alert('Este email já está registrado. Por favor, faça login ou use outro email.');
-            return;
-        }
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const userExists = users.some(user => user.email === email);
 
-        const newUser = { username, email, password };
-        users.push(newUser);
-        localStorage.setItem('users', JSON.stringify(users));
+    if (userExists) {
+      alert('Este email já está registrado. Por favor, faça login ou use outro email.');
+      return;
+    }
 
-        alert('Cadastro realizado com sucesso! Agora você pode fazer login.');
-        toggleForm(); 
-        registerSubmit.reset(); 
-    });
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
 
-    loginSubmit.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
+    alert('Cadastro realizado com sucesso! Agora você pode fazer login.');
+    toggleForm();
+    registerSubmit.reset();
+  });
 
-        if (!email || !password) {
-            alert('Por favor, preencha todos os campos para fazer login.');
-            return;
-        }
+  // Login de usuário
+  loginSubmit.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const foundUser = users.find(user => user.email === email && user.password === password);
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
 
-        if (foundUser) {
-            alert(`Bem-vindo, ${foundUser.username}! Login realizado com sucesso.`);
-            window.location.href = 'homePage.html';
-        } else {
-            alert('Email ou senha incorretos.');
-        }
-    });
+    if (!email || !password) {
+      alert('Por favor, preencha todos os campos para fazer login.');
+      return;
+    }
 
-    logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('isLoggedIn'); 
-        alert('Você foi desconectado.');
-        updateLogoutButtonVisibility(); 
-        window.location.href = 'login.html'; 
-    });
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const foundUser = users.find(user => user.email === email && user.password === password);
 
-    window.toggleAside = () => {
-        const aside = document.getElementById('asside');
-        aside.classList.toggle('active');
-    };
+    if (foundUser) {
+      alert(`Bem-vindo, ${foundUser.username}! Login realizado com sucesso.`);
+      localStorage.setItem('isLoggedIn', JSON.stringify(foundUser)); // salva sessão simples
+      updateLogoutButtonVisibility();
+      window.location.href = 'homePage.html'; // redireciona após login
+    } else {
+      alert('Email ou senha incorretos.');
+    }
+  });
 
-    window.fecharAside = () => {
-        const aside = document.getElementById('asside');
-        aside.classList.remove('active');
-    };
+  // Mostrar ou esconder botão logout
+  function updateLogoutButtonVisibility() {
+    const loggedInUser = JSON.parse(localStorage.getItem('isLoggedIn'));
+    if (loggedInUser) {
+      logoutBtn.style.display = 'block';
+    } else {
+      logoutBtn.style.display = 'none';
+    }
+  }
+  updateLogoutButtonVisibility();
+
+  // Logout
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    alert('Você foi desconectado.');
+    updateLogoutButtonVisibility();
+    window.location.href = 'login.html';
+  });
+
+  // Menu lateral
+  window.toggleAside = () => {
+    aside.classList.toggle('active');
+  };
+
+  window.fecharAside = () => {
+    aside.classList.remove('active');
+  };
 });
