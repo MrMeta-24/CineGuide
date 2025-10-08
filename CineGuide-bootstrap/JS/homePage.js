@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const destaques = filmes.slice(0, 3);
   renderFilmes(destaques, highlightsContainer);
 
-  // Mais vistos: aleatórios
   const maisVistos = shuffleArray([...filmes]).slice(0, Math.min(3, filmes.length));
   renderFilmes(maisVistos, mostWatchedContainer);
 
@@ -46,7 +45,6 @@ function renderFilmes(lista, container) {
   });
 }
 
-// Função para embaralhar array (Fisher-Yates)
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -55,7 +53,6 @@ function shuffleArray(array) {
   return array;
 }
 
-// Controle do menu lateral (asside)
 function toggleAside() {
   const aside = document.getElementById("asside");
   aside.classList.add("active");
@@ -65,4 +62,5 @@ function fecharAside() {
   const aside = document.getElementById("asside");
   aside.classList.remove("active");
 }
+
 
