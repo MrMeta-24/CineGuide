@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filmes.push(filme);
     localStorage.setItem("filmes", JSON.stringify(filmes));
 
-    alert("🎬 Filme salvo com sucesso!");
+    alert("Filme salvo com sucesso!");
     form.reset();
   });
 
@@ -46,4 +46,3 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("aside").classList.remove("active");
   };
 });
-

@@ -14,7 +14,7 @@ body {
 /* HEADER */
 header#inicio {
   background-color: #141414;
-  color: #f5c518;
+  color: #0d6efd;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +25,7 @@ header#inicio {
 }
 
 header button {
-  background-color: #f5c518;
+  background-color: #0d6efd;
   border: none;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -35,7 +35,7 @@ header button {
 }
 
 header button:hover {
-  background-color: #d4aa17;
+  background-color: #0d6efd;
 }
 
 header h1 {
@@ -43,45 +43,45 @@ header h1 {
 }
 
 /* ASIDE MENU */
-aside#asside {
+#aside {
   position: fixed;
   top: 0;
-  left: -260px;
+  left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #222;
-  color: white;
+  background-color: #343a40;
   padding: 1rem;
   transition: left 0.3s ease;
-  z-index: 100;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
-aside#asside.open {
+#aside.active {
   left: 0;
 }
 
-aside .fechar-btn {
-  background-color: #f44336;
+/* Botão fechar */
+.fechar-btn {
+  background-color: #dc3545;
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
-  font-weight: bold;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
   cursor: pointer;
   margin-bottom: 1rem;
-  border-radius: 4px;
 }
 
-aside a {
+/* Links do menu lateral */
+#aside a {
+  color: white;
   display: block;
-  color: #f5f5f5;
+  margin: 1rem 0;
   text-decoration: none;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #333;
-  transition: color 0.2s;
+  font-weight: 500;
 }
 
-aside a:hover {
-  color: #f5c518;
+#aside a:hover {
+  text-decoration: underline;
 }
 
 /* CONTAINER GERAL */
@@ -172,7 +172,7 @@ aside a:hover {
 }
 
 .footer a {
-  color: #f5c518;
+  color: #0d6efd;
   text-decoration: none;
 }
 

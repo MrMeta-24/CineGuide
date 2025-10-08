@@ -13,17 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const destaques = filmes.slice(0, 3);
+  const destaques = filmes.slice(0, 10);
   renderFilmes(destaques, highlightsContainer);
 
-  const maisVistos = shuffleArray([...filmes]).slice(0, Math.min(3, filmes.length));
+  const maisVistos = shuffleArray([...filmes]).slice(0, Math.min(10, filmes.length));
   renderFilmes(maisVistos, mostWatchedContainer);
 
   const melhorAvaliados = filmes
     .filter(f => f.nota)
     .sort((a, b) => b.nota - a.nota)
-    .slice(0, 3);
+    .slice(0, 10);
   renderFilmes(melhorAvaliados, topRatedContainer);
+
+  const searchForm = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    localStorage.setItem("searchQuery", query);
+    window.location.href = "search.html";
+  });
 });
 
 function renderFilmes(lista, container) {
@@ -54,13 +66,11 @@ function shuffleArray(array) {
 }
 
 function toggleAside() {
-  const aside = document.getElementById("asside");
+  const aside = document.getElementById("aside");
   aside.classList.add("active");
 }
 
 function fecharAside() {
-  const aside = document.getElementById("asside");
+  const aside = document.getElementById("aside");
   aside.classList.remove("active");
 }
-
-

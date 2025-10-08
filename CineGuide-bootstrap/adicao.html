@@ -42,11 +42,39 @@
               </div>
               <div class="col-md-6">
                 <label class="form-label" for="genero">Gênero</label>
-                <input type="text" class="form-control" name="genero" id="genero">
-              </div>
+                <select class="form-control" name="genero" id="genero" required>
+                    <option value="">Selecione um gênero</option>
+                    <option>Ação</option>
+                    <option>Animação</option>
+                    <option>Aventura</option>
+                    <option>Comédia</option>
+                    <option>Comédia Romântica</option>
+                    <option>Documentário</option>
+                    <option>Drama</option>
+                    <option>Fantasia</option>
+                    <option>Ficção Científica</option>
+                    <option>Musical</option>
+                    <option>Mistério</option>
+                    <option>Policial</option>
+                    <option>Romance</option>
+                    <option>Suspense</option>
+                    <option>Terror</option>
+                    <option>Guerra</option>
+                    <option>Faroeste</option>
+                    <option>Biografia</option>
+                </select>
+               </div>
               <div class="col-md-6">
                 <label class="form-label" for="classificacao">Classificação Etária</label>
-                <input type="text" class="form-control" name="classificacao" id="classificacao">
+                <select class="form-control" name="classificacao" id="classificacao" required>
+                    <option value="">Selecione a classificação</option>
+                    <option>Livre</option>
+                    <option>10 anos</option>
+                    <option>12 anos</option>
+                    <option>14 anos</option>
+                    <option>16 anos</option>
+                    <option>18 anos</option>
+                </select>
               </div>
               <div class="col-md-6">
                 <label class="form-label" for="nota">Nota (0 a 10)</label>
@@ -78,9 +106,9 @@
   <aside id="aside">
     <button class="fechar-btn" onclick="fecharAside()">X</button>
     <div class="mt-4">
-      <a href="login.html">Login</a>
       <a href="homePage.html">Home</a>
-      <a href="adicao.html">Adicionar Filme</a>
+      <a href="login.html">Login</a>
+      <a href="search.html">Buscar Filme</a>
     </div>
   </aside>
 

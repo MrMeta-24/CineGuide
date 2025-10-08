@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.getElementById('loginForm');
   const registerForm = document.getElementById('registerForm');
-  const loginSubmit = document.getElementById('login');
-  const registerSubmit = document.getElementById('register');
+  const loginFormElement = document.getElementById('login');
+  const registerFormElement = document.getElementById('register');
   const logoutBtn = document.getElementById('logoutBtn');
   const aside = document.getElementById('asside');
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.classList.toggle('hidden');
   };
 
-  registerSubmit.addEventListener('submit', (e) => {
+  registerFormElement.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const username = document.getElementById('registerUsername').value.trim();
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     alert('Cadastro realizado com sucesso! Agora você pode fazer login.');
     toggleForm();
-    registerSubmit.reset();
+    registerFormElement.reset();
   });
 
-  loginSubmit.addEventListener('submit', (e) => {
+  loginFormElement.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const email = document.getElementById('loginEmail').value.trim();
@@ -65,12 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateLogoutButtonVisibility() {
     const loggedInUser = JSON.parse(localStorage.getItem('isLoggedIn'));
-    if (loggedInUser) {
-      logoutBtn.style.display = 'block';
-    } else {
-      logoutBtn.style.display = 'none';
-    }
+    logoutBtn.style.display = loggedInUser ? 'block' : 'none';
   }
+
   updateLogoutButtonVisibility();
 
   logoutBtn.addEventListener('click', () => {
@@ -88,5 +85,3 @@ document.addEventListener('DOMContentLoaded', () => {
     aside.classList.remove('active');
   };
 });
-
-
