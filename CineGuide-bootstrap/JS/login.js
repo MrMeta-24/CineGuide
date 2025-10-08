@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (foundUser) {
       alert(`Bem-vindo, ${foundUser.username}! Login realizado com sucesso.`);
-      localStorage.setItem('isLoggedIn', JSON.stringify(foundUser)); // salva sessão simples
+      localStorage.setItem('isLoggedIn', JSON.stringify(foundUser));
       updateLogoutButtonVisibility();
-      window.location.href = 'homePage.html'; // redireciona após login
+      window.location.href = 'homePage.html';
     } else {
       alert('Email ou senha incorretos.');
     }
@@ -88,4 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
     aside.classList.remove('active');
   };
 });
+
 
